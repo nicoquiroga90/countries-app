@@ -1,0 +1,30 @@
+.main-container {
+  border: 9px hsl(0, 0%, 52%);
+  box-shadow: 0 0 8px hsla(0, 0%, 52%, 0.5);
+}
+
+.search-bar {
+  height: 3em;
+  border: 9px hsl(0, 0%, 52%);
+  box-shadow: 0 0 8px hsla(0, 0%, 52%, 0.5);
+  margin: 3em;
+  width: 25em;
+  padding: 0em 1em;
+}
+
+.filters-conteiner {
+  display: flex;
+  justify-content: space-around;
+}
+
+.region-filter-list {
+  height: 3em;
+  border: 9px hsl(0, 0%, 52%);
+  box-shadow: 0 0 8px hsla(0, 0%, 52%, 0.5);
+  margin: 3em;
+  padding: 0em 1em;
+}
+
+.region-filter-option{
+    background-color: aqua;
+}

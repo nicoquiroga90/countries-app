@@ -1,19 +1,25 @@
-.containerList {
+.country-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  justify-content: center;
+  margin: 2.5em;
 }
 
 .card {
-  width: calc(25% - 20px);
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
+  width: 14em;
+  height: 20em;
+  border-radius: 4%;
+  margin: 2em;
+  border-radius: 4%;
+  text-align: center;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  background-color: hsl(0, 0%, 100%);
 }
 
 .card img {
   width: 100%;
+  border-top-left-radius: 4%;
+  border-top-right-radius: 4%;
 }
 
 .card h3 {
@@ -23,22 +29,4 @@
 
 .card p {
   margin: 5px 0;
-}
-
-@media screen and (max-width: 1440px) {
-  .card {
-    width: calc(33.33% - 20px);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .card {
-    width: calc(50% - 20px);
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .card {
-    width: calc(100% - 20px);
-  }
 }

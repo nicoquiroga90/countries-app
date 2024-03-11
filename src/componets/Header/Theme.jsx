@@ -1,8 +1,8 @@
-
+import "../../styles/Header.css";
 
 function Theme(){
     return(
-<button>🌙</button>
+<button>🌙 Dark Mode</button>
     )
 }
 

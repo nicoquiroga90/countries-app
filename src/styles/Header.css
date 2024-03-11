@@ -1,0 +1,21 @@
+.header-conteiner {
+  display: flex;
+  justify-content: space-between;
+  background-color: hsl(0, 0%, 100%);
+  padding: 0em 2em;
+}
+
+.buttom-conteiner {
+  display: flex;
+  margin: 1em;
+}
+
+.theme-buttom {
+  background-color: hsl(0, 0%, 100%);
+  border: none;
+  font-weight: 600;
+}
+
+.header-text{
+    font-weight: 900;
+}
