@@ -1,14 +1,16 @@
-import './styles/App.css';
-import { Header } from './componets/Header/Header';
-import Main from './pages/Main';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CountryDetail from "./componets/Detail/CountryDetail";
+import Main from "./pages/Main";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-     <Header />
-     <Main />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/countries/:countryName" element={<CountryDetail />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

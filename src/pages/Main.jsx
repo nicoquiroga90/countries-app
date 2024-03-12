@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import SearchBar from "../componets/Main/SearchCountry";
 import Countries from "../componets/Main/Countries";
 import RegionFilter from "../componets/Main/RegionFilter";
-import "../styles/Main.css"
+import "../styles/Main.css";
 
 function Main() {
   const [countryList, setCountryList] = useState([]);
@@ -42,12 +42,12 @@ function Main() {
   return (
     <div className="main-container">
       <div className="filters-conteiner">
-      <SearchBar searchTerm={searchTerm} onSearchChange={handleSearch} />
-      <RegionFilter
-        regions={regions}
-        selectedRegion={selectedRegion}
-        onSelectRegion={handleSelectRegion}
-      />
+        <SearchBar searchTerm={searchTerm} onSearchChange={handleSearch} />
+        <RegionFilter
+          regions={regions}
+          selectedRegion={selectedRegion}
+          onSelectRegion={handleSelectRegion}
+        />
       </div>
       <Countries
         countryList={countryList}

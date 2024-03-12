@@ -14,6 +14,7 @@
   text-align: center;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   background-color: hsl(0, 0%, 100%);
+  transition: transform 0.3s ease;
 }
 
 .card img {
@@ -29,4 +30,13 @@
 
 .card p {
   margin: 5px 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  transform: scale(1.08);
 }

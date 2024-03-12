@@ -7,19 +7,36 @@ const PORT = 4040;
 
 app.use(cors());
 
-const countries = './src/backend/data.json';
+const countriesFilePath = './src/backend/data.json';
 
 app.get('/api/countries', (req, res) => {
-
-  fs.readFile(countries, (error, data) => {
+  fs.readFile(countriesFilePath, (error, data) => {
     if (error) {
       console.error('Error reading JSON file:', error);
       return res.status(500).json({ error: 'Error reading JSON file' });
     }
 
-    const jsonData = JSON.parse(data);
+    const countries = JSON.parse(data);
+    res.json(countries);
+  });
+});
 
-    res.json(jsonData);
+app.get('/api/countries/:countryName', (req, res) => {
+  const countryName = req.params.countryName;
+  fs.readFile(countriesFilePath, (error, data) => {
+    if (error) {
+      console.error('Error reading JSON file:', error);
+      return res.status(500).json({ error: 'Error reading JSON file' });
+    }
+
+    const countries = JSON.parse(data);
+    const country = countries.find(country => country.name.toLowerCase() === countryName.toLowerCase());
+
+    if (country) {
+      res.json(country);
+    } else {
+      res.status(404).json({ error: 'Country not found' });
+    }
   });
 });
 
