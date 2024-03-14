@@ -23,13 +23,18 @@ const CountryDetail = () => {
 
   return (
     <div>
-      <h1>Detalles de {countryName}</h1>
+      <h1>{countryName}</h1>
       {countryData && (
         <div>
-          <p>Nombre: {countryData.name}</p>
-          <p>Población: {countryData.population}</p>
-          <p>Región: {countryData.region}</p>
+          <p>Native Name: {countryData.nativeName}</p>
+          <p>Population: {countryData.population}</p>
+          <p>Sub Region: {countryData.subregion}</p>
           <p>Capital: {countryData.capital}</p>
+          <div>
+            <p>Top Level Domain: {countryData.topLevelDomain}</p>
+            <p>Currencies: {countryData.currencies[0].name}</p>
+           <p>Languages: {countryData.languages.map(language => language.name).join(', ')}</p>
+          </div>
         </div>
       )}
     </div>
