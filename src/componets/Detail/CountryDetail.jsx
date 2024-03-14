@@ -1,37 +1,39 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const CountryDetail = () => {
   const { countryName } = useParams();
   const [countryData, setCountryData] = useState(null);
-  const apiUrl = `https://your-api-url/api/countries/${countryName}`;
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCountryData = async () => {
       try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(
+          `http://localhost:4040/api/countries/${countryName}`
+        );
         const data = await response.json();
         setCountryData(data);
       } catch (error) {
-        console.error('Error fetching country data:', error);
+        console.error("Error fetching country data:", error);
       }
     };
 
-    fetchData();
-  }, [apiUrl]);
-
-  if (!countryData) {
-    return <div>Loading...</div>;
-  }
+    fetchCountryData();
+  }, [countryName]);
 
   return (
     <div>
-      <h1>Detalles de {countryData.name}</h1>
-      <p>Capital: {countryData.capital}</p>
-      <p>Población: {countryData.population}</p>
-      {/* Mostrar otros detalles del país según sea necesario */}
+      <h1>Detalles de {countryName}</h1>
+      {countryData && (
+        <div>
+          <p>Nombre: {countryData.name}</p>
+          <p>Población: {countryData.population}</p>
+          <p>Región: {countryData.region}</p>
+          <p>Capital: {countryData.capital}</p>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default CountryDetail;

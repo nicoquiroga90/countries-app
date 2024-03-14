@@ -16,7 +16,7 @@ function Countries({ countryList, searchTerm, selectedRegion }) {
   return (
     <div className="country-grid">
       {filteredCountries.map((country) => (
-       <Link to={`/details/${encodeURIComponent(country.name)}`} key={country.name}>
+       <Link to={`/countries/${encodeURIComponent(country.name)}`} key={country.name}>
           <div className="card">
             <img src={country.flags.svg} alt={`Flag of ${country.name}`} />
             <h3>{country.name}</h3>

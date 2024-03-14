@@ -6,8 +6,6 @@ function Details() {
   const [countryInfo, setCountryInfo] = useState(null);
 
   useEffect(() => {
-    // Lógica para cargar los detalles del país según el nombre pasado en la ruta
-    // Por ejemplo, puedes hacer otra solicitud a la API usando el nombre del país
     const fetchCountryInfo = async () => {
       try {
         const response = await fetch(`http://localhost:4040/api/countries/${encodeURIComponent(country)}`);
@@ -32,7 +30,6 @@ function Details() {
           <h2>{countryInfo.name}</h2>
           <p>Capital: {countryInfo.capital}</p>
           <p>Population: {countryInfo.population}</p>
-          {/* Puedes mostrar más detalles aquí */}
         </div>
       ) : (
         <p>Cargando detalles del país...</p>
