@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "../styles/Details.css";
 
 const Details = () => {
   const { countryName } = useParams();
@@ -51,24 +52,54 @@ const Details = () => {
             src={countryData.flags.svg}
             alt={`Flag of ${countryData.name}`}
           />
-          <h1>{countryData.name}</h1>
+
           <div className="info-container">
-            <p>Native Name: {countryData.nativeName}</p>
-            <p>Population: {countryData.population}</p>
-            <p>Sub Region: {countryData.subregion}</p>
-            <p>Capital: {countryData.capital}</p>
-            <p>
-              Border Countries:
-              {countryData.borders && countryData.borders.length > 0 ? (
-                countryData.borders.map((borderCode, index) => (
-                  <span key={index} className="border-country">
-                    {getFullName(borderCode)}
-                  </span>
-                ))
-              ) : (
-                <span> No bordering countries</span>
-              )}
-            </p>
+            <h1>{countryData.name}</h1>
+            <div className="info-detail">
+              <dev className="info-detail-column-1">
+                <p>
+                  <strong>Native Name:</strong> {countryData.nativeName}
+                </p>
+                <p>
+                  <strong> Population:</strong> {countryData.population}
+                </p>
+                <p>
+                  <strong>Sub Region:</strong> {countryData.subregion}
+                </p>
+                <p>
+                  <strong>Capital:</strong> {countryData.capital}
+                </p>
+              </dev>
+              <dev className="info-detail-column-2">
+                <p>
+                  <strong>Top Level Domain: </strong>
+                  {countryData.topLevelDomain}
+                </p>
+                <p>
+                  <strong>Currencies: </strong>
+                  {countryData.currencies[0].name}
+                </p>
+                <p>
+                  <strong>Languages: </strong>
+                  {countryData.languages
+                    .map((language) => language.name)
+                    .join(", ")}
+                </p>
+              </dev>
+              </div>
+              <p className="detail-border-countries">
+                <strong>Border Countries: </strong>
+                {countryData.borders && countryData.borders.length > 0 ? (
+                  countryData.borders.map((borderCode, index) => (
+                    <span key={index} className="border-country">
+                      {getFullName(borderCode)}
+                    </span>
+                  ))
+                ) : (
+                  <span> No bordering countries</span>
+                )}
+              </p>
+            
           </div>
         </>
       )}

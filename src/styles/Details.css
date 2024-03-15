@@ -1,0 +1,40 @@
+.country-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.flag-detail {
+     height: 20em;
+    width: 30em;
+    margin: 1em;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  padding: 5%;
+}
+
+.border-country {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  margin: 0.3em 0.3em;
+  padding: 0em 0.5em;
+}
+
+.detail-border-countries {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.info-detail{
+    display: flex;
+}
+
+p{
+    padding-right: 0.7em;
+}
