@@ -1,15 +1,15 @@
 .country-details {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
 }
 
 .flag-detail {
-     height: 20em;
-    width: 30em;
-    margin: 1em;
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  height: fit-content;
+  width: 30em;
+  margin: 1em;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
@@ -31,10 +31,14 @@ h1 {
   align-items: baseline;
 }
 
-.info-detail{
-    display: flex;
+.info-detail {
+  display: flex;
 }
 
-p{
-    padding-right: 0.7em;
+p {
+  padding-right: 0.7em;
+}
+
+.info-container {
+  max-width: 40em;
 }
