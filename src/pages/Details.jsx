@@ -12,7 +12,7 @@ const Details = () => {
       try {
         const encodedCountryName = encodeURIComponent(countryName);
         const response = await fetch(
-          `https://countries-app-5hf6.onrender.com/api/countries/${encodedCountryName}`
+          `http://localhost:4040/api/countries/${encodedCountryName}`
         );
 
         const data = await response.json();
@@ -24,7 +24,7 @@ const Details = () => {
 
     const fetchAllCountries = async () => {
       try {
-        const response = await fetch(`https://countries-app-5hf6.onrender.com/api/countries`);
+        const response = await fetch(`http://localhost:4040/api/countries`);
         const data = await response.json();
         setAllCountries(data);
       } catch (error) {
@@ -46,7 +46,7 @@ const Details = () => {
   return (
     <div className="details-container">
       <div className="back-button">
-        <Link to="/">
+        <Link to="/" >
           <strong className="arrow-back">←</strong> Back
         </Link>
       </div>
@@ -62,18 +62,10 @@ const Details = () => {
               <h1>{countryData.name}</h1>
               <div className="info-detail">
                 <div className="info-detail-column-1">
-                  <p>
-                    <strong>Native Name:</strong> {countryData.nativeName}
-                  </p>
-                  <p>
-                    <strong>Population:</strong> {countryData.population}
-                  </p>
-                  <p>
-                    <strong>Sub Region:</strong> {countryData.subregion}
-                  </p>
-                  <p>
-                    <strong>Capital:</strong> {countryData.capital}
-                  </p>
+                  <p><strong>Native Name:</strong> {countryData.nativeName}</p>
+                  <p><strong>Population:</strong> {countryData.population}</p>
+                  <p><strong>Sub Region:</strong> {countryData.subregion}</p>
+                  <p><strong>Capital:</strong> {countryData.capital}</p>
                 </div>
                 <div className="info-detail-column-2">
                   <p>
@@ -82,9 +74,7 @@ const Details = () => {
                   </p>
                   <p>
                     <strong>Currencies: </strong>
-                    {countryData.currencies && countryData.currencies[0]
-                      ? countryData.currencies[0].name
-                      : "-"}
+                    {countryData.currencies && countryData.currencies[0] ? countryData.currencies[0].name : '-'}
                   </p>
                   <p>
                     <strong>Languages: </strong>

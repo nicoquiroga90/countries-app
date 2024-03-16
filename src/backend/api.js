@@ -3,11 +3,9 @@ const fs = require('fs');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 80; 
+const PORT = 4040;
 
-app.use(cors({
-  origin: 'https://countries-app-5hf6.onrender.com' 
-}));
+app.use(cors());
 
 const countriesFilePath = './src/backend/data.json';
 
