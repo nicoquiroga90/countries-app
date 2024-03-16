@@ -13,7 +13,7 @@ function Main() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:4040/api/countries");
+        const response = await fetch("https://countries-app-5hf6.onrender.com/api/countries");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

@@ -12,7 +12,7 @@ const Details = () => {
       try {
         const encodedCountryName = encodeURIComponent(countryName);
         const response = await fetch(
-          `http://localhost:4040/api/countries/${encodedCountryName}`
+          `https://countries-app-5hf6.onrender.com/api/countries/${encodedCountryName}`
         );
 
         const data = await response.json();
@@ -24,7 +24,7 @@ const Details = () => {
 
     const fetchAllCountries = async () => {
       try {
-        const response = await fetch(`http://localhost:4040/api/countries`);
+        const response = await fetch(`https://countries-app-5hf6.onrender.com/api/countries`);
         const data = await response.json();
         setAllCountries(data);
       } catch (error) {
