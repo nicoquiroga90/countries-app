@@ -3,6 +3,7 @@
   justify-content: space-evenly;
   align-items: center;
   height: 90vh;
+  margin: -4em 0em 0em 0em;
 }
 
 .flag-detail {
@@ -41,4 +42,18 @@ p {
 
 .info-container {
   max-width: 40em;
+}
+
+.back-button {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  width: fit-content;
+  padding: 0.3em 2em;
+  margin: 4em 0em 0em 3em;
+  background-color: white;
+  font-weight: 500;
+  border-radius: 5%;
+}
+
+.arrow-back{
+  font-weight: 700;
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "../styles/Details.css";
 
 const Details = () => {
@@ -44,48 +44,55 @@ const Details = () => {
   };
 
   return (
-    <div className="country-details">
-      {countryData && (
-        <>
-          <img
-            className="flag-detail"
-            src={countryData.flags.svg}
-            alt={`Flag of ${countryData.name}`}
-          />
-
-          <div className="info-container">
-            <h1>{countryData.name}</h1>
-            <div className="info-detail">
-              <dev className="info-detail-column-1">
-                <p>
-                  <strong>Native Name:</strong> {countryData.nativeName}
-                </p>
-                <p>
-                  <strong> Population:</strong> {countryData.population}
-                </p>
-                <p>
-                  <strong>Sub Region:</strong> {countryData.subregion}
-                </p>
-                <p>
-                  <strong>Capital:</strong> {countryData.capital}
-                </p>
-              </dev>
-              <dev className="info-detail-column-2">
-                <p>
-                  <strong>Top Level Domain: </strong>
-                  {countryData.topLevelDomain}
-                </p>
-                <p>
-                  <strong>Currencies: </strong>
-                  {countryData.currencies[0].name}
-                </p>
-                <p>
-                  <strong>Languages: </strong>
-                  {countryData.languages
-                    .map((language) => language.name)
-                    .join(", ")}
-                </p>
-              </dev>
+    <div className="details-container">
+      <div className="back-button">
+        <Link to="/">
+          <strong className="arrow-back">←</strong> Back
+        </Link>
+      </div>
+      <div className="country-details">
+        {countryData && (
+          <>
+            <img
+              className="flag-detail"
+              src={countryData.flags.svg}
+              alt={`Flag of ${countryData.name}`}
+            />
+            <div className="info-container">
+              <h1>{countryData.name}</h1>
+              <div className="info-detail">
+                <div className="info-detail-column-1">
+                  <p>
+                    <strong>Native Name:</strong> {countryData.nativeName}
+                  </p>
+                  <p>
+                    <strong>Population:</strong> {countryData.population}
+                  </p>
+                  <p>
+                    <strong>Sub Region:</strong> {countryData.subregion}
+                  </p>
+                  <p>
+                    <strong>Capital:</strong> {countryData.capital}
+                  </p>
+                </div>
+                <div className="info-detail-column-2">
+                  <p>
+                    <strong>Top Level Domain: </strong>
+                    {countryData.topLevelDomain}
+                  </p>
+                  <p>
+                    <strong>Currencies: </strong>
+                    {countryData.currencies && countryData.currencies[0]
+                      ? countryData.currencies[0].name
+                      : "-"}
+                  </p>
+                  <p>
+                    <strong>Languages: </strong>
+                    {countryData.languages
+                      .map((language) => language.name)
+                      .join(", ")}
+                  </p>
+                </div>
               </div>
               <p className="detail-border-countries">
                 <strong>Border Countries: </strong>
@@ -99,10 +106,10 @@ const Details = () => {
                   <span> No bordering countries</span>
                 )}
               </p>
-            
-          </div>
-        </>
-      )}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
