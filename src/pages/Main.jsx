@@ -4,6 +4,10 @@ import Countries from "../componets/Main/Countries";
 import RegionFilter from "../componets/Main/RegionFilter";
 import "../styles/Main.css";
 
+const PORT = process.env.PORT || 3000;
+const baseURL = process.env.NODE_ENV === 'production' ? "https://countries-app-5hf6.onrender.com" : `http://localhost:${PORT}`;
+
+
 function Main() {
   const [countryList, setCountryList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,7 +17,7 @@ function Main() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:4040/api/countries");
+        const response = await fetch(`${baseURL}/api/countries`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

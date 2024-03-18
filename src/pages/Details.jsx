@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../styles/Details.css";
 
+const PORT = process.env.PORT || 3000;
+const baseURL = process.env.NODE_ENV === 'production' ? "https://countries-app-5hf6.onrender.com" : `http://localhost:${PORT}`;
+
+
 const Details = () => {
   const { countryName } = useParams();
   const [countryData, setCountryData] = useState(null);
@@ -12,7 +16,7 @@ const Details = () => {
       try {
         const encodedCountryName = encodeURIComponent(countryName);
         const response = await fetch(
-          `http://localhost:4040/api/countries/${encodedCountryName}`
+          `${baseURL}/api/countries/${encodedCountryName}`
         );
 
         const data = await response.json();
@@ -24,7 +28,7 @@ const Details = () => {
 
     const fetchAllCountries = async () => {
       try {
-        const response = await fetch(`http://localhost:4040/api/countries`);
+        const response = await fetch(`${baseURL}/api/countries`);
         const data = await response.json();
         setAllCountries(data);
       } catch (error) {
