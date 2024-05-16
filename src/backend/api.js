@@ -13,14 +13,12 @@ app.use(express.static(buildPath));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const countriesFilePath = './src/backend/data.json';
-
 app.get('/api/countries', (req, res) => {
-  fs.readFile(countriesFilePath, (error, data) => {
+  fs.readFile(buildPath, (error, data) => {
     if (error) {
-     console.error('Error reading JSON file:', error); 
-    return res.status(500).json({ error: 'Error reading JSON file', details: error.message });
-  }
+      console.error('Error reading JSON file:', error); 
+      return res.status(500).json({ error: 'Error reading JSON file', details: error.message });
+    }
 
     const countries = JSON.parse(data);
     res.json(countries);
@@ -29,7 +27,7 @@ app.get('/api/countries', (req, res) => {
 
 app.get('/api/countries/:countryName', (req, res) => {
   const countryName = req.params.countryName;
-  fs.readFile(countriesFilePath, (error, data) => {
+  fs.readFile(buildPath, (error, data) => {
     if (error) {
       console.error('Error reading JSON file:', error);
       return res.status(500).json({ error: 'Error reading JSON file' });
