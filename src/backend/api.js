@@ -18,9 +18,9 @@ const countriesFilePath = './src/backend/data.json';
 app.get('/api/countries', (req, res) => {
   fs.readFile(countriesFilePath, (error, data) => {
     if (error) {
-      console.error('Error reading JSON file:', error);
-      return res.status(500).json({ error: 'Error reading JSON file' });
-    }
+     console.error('Error reading JSON file:', error); 
+    return res.status(500).json({ error: 'Error reading JSON file', details: error.message });
+  }
 
     const countries = JSON.parse(data);
     res.json(countries);
