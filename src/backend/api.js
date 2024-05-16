@@ -1,13 +1,14 @@
 const express = require('express');
 const fs = require('fs');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
-const buildPath = path.join(__dirname, "../../dist");
+const buildPath = path.join(__dirname, 'src/backend/data.json');
 app.use(express.static(buildPath));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
