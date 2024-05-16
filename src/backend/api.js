@@ -7,6 +7,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
+const buildPath = path.join(__dirname, "../../dist");
+app.use(express.static(buildPath));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 const countriesFilePath = './src/backend/data.json';
 
 app.get('/api/countries', (req, res) => {

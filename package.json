@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "nodemon src/backend/api.js & react-scripts start",
-    "build": "nodemon src/backend/api.js & react-scripts build",
+    "build": "src/backend/api.js & react-scripts build",
     "test": "nodemon src/backend/api.js & react-scripts test",
     "eject": "nodemon src/backend/api.js & react-scripts eject"
   },
