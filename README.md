@@ -28,3 +28,8 @@ Your users should be able to:
 
 
 ![Detail Preview](./public/detail.png)
+
+
+## Visit the deployed version:
+
+[LINK](https://countries-app-topaz.vercel.app/)
