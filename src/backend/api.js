@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
-const buildPath = path.join(__dirname, 'src/backend/data.json');
+const buildPath = path.join(__dirname, 'data.json'); 
 app.use(express.static(buildPath));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
